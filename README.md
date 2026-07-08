@@ -1,75 +1,81 @@
-# vanita-women-children-help
-🌸 Vanita – Women & Children Help Initiative
+# VW Foundation Full-Stack Website
 
-Domain: Social Welfare | Women Safety | Child Protection | Web Platform
+A professional website project for **VW Foundation / Vanita's Women Consultancy & Help**. The project includes a complete responsive frontend and a Node.js + Express.js backend for contact form submissions.
 
-📖 Project Overview
+## Main Features
 
-Vanita – Women & Children Help Initiative is a social impact project focused on supporting women and children facing domestic violence, abuse, injustice, and social neglect.
-The platform aims to provide awareness, guidance, emergency support information, and access to help resources through a digital interface.
+- Professional responsive website design
+- Home, About, Services, Impact, Programs, Gallery, and Contact sections
+- Local image gallery using provided field work photos
+- Backend contact form API
+- Submissions stored in `data/submissions.json`
+- Admin protected submissions API
+- Basic validation, security headers, CORS, and rate limiting
 
-This project is inspired by real-life social work activities and NGO-based interventions.
+## Tech Stack
 
-🎯 Objectives
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: Node.js, Express.js
+- Data Storage: JSON file storage
+- Security: Helmet, rate limiting, request validation
 
-Support women and children affected by domestic violence and abuse
+## How to Run
 
-Provide awareness about legal rights and safety measures
+1. Open the project folder in VS Code.
+2. Install packages:
 
-Share verified helpline numbers and NGO support resources
+```bash
+npm install
+```
 
-Create a safe digital space for guidance and information
+3. Start the backend server:
 
-🛠️ Technologies Used
+```bash
+npm start
+```
 
-HTML, CSS, JavaScript
+4. Open the website:
 
-Python (for backend / future integration)
+```text
+http://localhost:3000
+```
 
-Database (MySQL / SQLite – planned)
+## Backend API
 
-UI/UX Design Principles
+### Health Check
 
-GitHub Pages (for deployment)
+```text
+GET /api/health
+```
 
-⚙️ Key Features
+### Submit Contact Form
 
-Women & Child safety awareness sections
+```text
+POST /api/contact
+```
 
-Emergency helpline information
+Body example:
 
-NGO & legal aid resource listing
+```json
+{
+  "name": "Test User",
+  "phone": "9999999999",
+  "email": "test@example.com",
+  "service": "Women Safety & Counselling",
+  "message": "Need guidance."
+}
+```
 
-Simple and accessible user interface
+### View Submissions
 
-Social impact–focused content structure
+```text
+GET /api/submissions
+```
 
-👩‍👧 Target Beneficiaries
+Header required:
 
-Women facing domestic violence
+```text
+x-admin-key: vw-foundation-admin
+```
 
-Children in unsafe or abusive environments
-
-Social workers and NGOs
-
-General public for awareness
-
-🌍 Social Impact
-
-Encourages reporting and awareness
-
-Helps connect victims to correct support systems
-
-Promotes safety, dignity, and justice
-
-🚀 Future Enhancements
-
-Complaint & case registration system
-
-Anonymous reporting feature
-
-AI-based guidance chatbot
-
-Location-based NGO & police station finder
-
-Multilingual support
+For deployment, change `ADMIN_KEY` in environment variables.
